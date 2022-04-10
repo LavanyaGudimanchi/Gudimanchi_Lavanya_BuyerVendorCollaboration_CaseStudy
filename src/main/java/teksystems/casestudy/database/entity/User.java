@@ -57,7 +57,13 @@ public class User {
     @Column(name="zipcode")
     private Integer zipcode;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "vendor", cascade = CascadeType.ALL)
     private List<Product> products = new ArrayList<>();
+
+    @OneToMany(mappedBy = "buyer", cascade = CascadeType.ALL)
+    private List<Order> orders = new ArrayList<>();
+
+    @Column(name ="isBuyer")
+    private boolean isBuyer;
 
 }

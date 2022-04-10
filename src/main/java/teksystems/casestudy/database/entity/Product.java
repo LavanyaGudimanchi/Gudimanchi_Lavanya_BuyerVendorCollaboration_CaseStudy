@@ -31,7 +31,10 @@ public class Product{
     @Column(name ="isAvailable")
     private boolean isAvailable;
 
+    @Column(name ="category")
+    private String category;
+
     @ManyToOne
-    private User user;
+    private User vendor;
 
 }
