@@ -13,12 +13,12 @@ public class UserController {
     private UserService userService;
 
 
-    public User getUser(@RequestParam(value = "loginId") String loginId,
-                        @RequestParam(value = "password") String password) {
-
-        User user = userService.getUser(loginId,password);
-
-        return user;
-    }
+//    public User getUser(@RequestParam(value = "loginId") String loginId,
+//                        @RequestParam(value = "password") String password) {
+//
+//        User user = userService.getUser(loginId,password);
+//
+//        return user;
+//    }
 
 }
