@@ -3,6 +3,7 @@ package teksystems.casestudy.database.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,13 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(name ="users")
-//@NamedQueries({
-//        @NamedQuery(name = User.VALIDATION , query = User.VALIDATION_JPQL)
-//})
 public class User {
-
-//    public static final String VALIDATION = "User.validateuser";
-//    public static  final String VALIDATION_JPQL = "Select u from User u where u.loginid = ?1 and u.password = ?2";
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
