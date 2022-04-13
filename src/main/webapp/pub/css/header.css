@@ -1,0 +1,60 @@
+body{
+    height: 100%;
+}
+
+.myrows{
+    border: 3px solid green;
+    padding: 5px;
+}
+.mycols{
+    background-image: linear-gradient( rgb(163, 14, 14), rgb(90, 74, 74));
+}
+.mycontainer{
+    background-color: aqua;
+}
+#topHeader{
+    background-color: black;
+    border-bottom: 1px solid  silver;
+    padding: 5px;
+}
+#topHeader a{
+    color: rgb(219, 202, 202);
+    font-weight: 300;
+    font-size: 1rem;
+
+}
+.container-fluid{
+    padding-left: 0;
+    padding-right: 0;
+}
+nav ul li a{
+    font-size: 1.1rem;
+    font-weight: 600;
+
+}
+/*start of footer */
+
+.full-footer{
+    background-image: linear-gradient( maroon, black);
+
+
+}
+.top-footer p{
+    color: rgb(224, 199, 199);
+
+}
+.top-footer a{
+    color: rgb(224, 199, 199);
+    font-weight: 200;
+
+}
+.top-footer h4{
+    color: #F2BA49;
+
+}
+.full-footer{
+
+    bottom: 0;
+    width: 100%;
+    padding-top: 10px;
+}
