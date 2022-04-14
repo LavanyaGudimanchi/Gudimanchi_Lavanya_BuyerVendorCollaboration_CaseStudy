@@ -1,13 +1,13 @@
 <jsp:include page="../include/header.jsp" />
 
-<form action="/login/loginSubmit" method="POST">
+<form:form modelAttribute="user" >
 
-    Username : <input type="text" name="username">
+    Username : <form:input path="loginId"> </form:input>
     <br>
-    Password : <input type="text" name="password">
+    Password : <form:input path="password"></form:input>
     <br>
     <button type="submit">Submit</button>
-</form>
+</form:form>
 
 
 <jsp:include page="../include/footer.jsp" />
