@@ -67,4 +67,6 @@ public class User {
     @Column(name ="isBuyer")
     private boolean isBuyer;
 
+    private String confirmPassword;
+
 }
