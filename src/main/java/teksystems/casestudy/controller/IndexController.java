@@ -1,6 +1,7 @@
 package teksystems.casestudy.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -8,17 +9,13 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class IndexController {
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @GetMapping(value = "/")
     public ModelAndView main() throws Exception {
         ModelAndView response = new ModelAndView();
         response.setViewName("index/index");
         return response;
     }
 
-    @RequestMapping(value = "/login/login", method = RequestMethod.GET)
-    public ModelAndView login() throws Exception {
-        ModelAndView response = new ModelAndView();
-        response.setViewName("login/loginForm");
-        return response;
-    }
+
+
 }

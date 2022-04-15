@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <html lang="en">
-
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
