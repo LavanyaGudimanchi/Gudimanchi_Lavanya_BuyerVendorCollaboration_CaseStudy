@@ -9,28 +9,31 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import teksystems.casestudy.database.entity.Product;
 import teksystems.casestudy.database.entity.User;
+import teksystems.casestudy.database.entity.UserCopy;
 
 @Controller
 public class ModelViewController {
 
-    @ModelAttribute("user")
-    public User myuser() {
-
-        User user = new User();
-        user.setFirstName("First");
-        user.setLastName("Last");
-        user.setEmail("abc@mnc.com");
-        user.setLoginId("user");
-        user.setPassword("user");
-        user.setCompanyName("company");
-        user.setPhoneNumber(1234567L);
-        return user;
-    }
+//    @ModelAttribute("user")
+//    public UserCopy myuser() {
+//
+//        UserCopy user = new UserCopy();
+//        user.firstName= "First";
+//        user.lastName = "Last";
+//        user.email = "abc@mnc.com";
+//        user.loginId= "user";
+//        return user;
+//    }
 
     @RequestMapping(value = "/login/login", method = RequestMethod.GET)
-    public ModelAndView login(@ModelAttribute ("User")User user) throws Exception {
+    public ModelAndView login(@ModelAttribute ("user")UserCopy user) throws Exception {
         ModelAndView response = new ModelAndView();
         response.setViewName("login/loginForm");
+        user.firstName= "First";
+        user.lastName = "Last";
+        user.email = "abc@mnc.com";
+        user.loginId= "user";
+        response.addObject(user);
         return response;
     }
 

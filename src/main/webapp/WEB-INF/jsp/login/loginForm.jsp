@@ -5,7 +5,7 @@
     <h2>${welcomemessage}</h2>
     <h3>${message}</h3>
     <div class="form-outline mb-4">
-      <input type="username" id="form2Example1" class="form-control" value="${myuser.firstName}"/>
+      <input type="username" id="form2Example1" class="form-control" value="${user.getFirstName}"/>
       <label class="form-label" for="form2Example1" >Login Id</label>
     </div>
 
