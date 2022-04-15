@@ -19,23 +19,9 @@
 
 <body>
 <header id="header">
-
-    <div clas="p-1" id="topHeader">
-        <div class="containor">
-            <div class="row">
-                <div class="col-12 text-right">
-                    <a class="p-1" href=""><i class="fab fa-1x fa-phone"></i>+1 612-963-3017</a>
-                    <a class="p-1" href="mailto:srilavanya.gudimanchi@gmail.com">
-                        <i class="fab fa-1x fa-envelope"></i>srilavanya.gudimanchi@gmail.com</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="bottomHeader">
-        <div class="container-fluid">
-            <div class="navbar navbar-dark navbar-expand-lg" style="background-color: maroon">
-                <a class="navbar-brand" href="">
-                    <img src="images/logo.jpg" width="80px" alt="">
+        <div class="navbar navbar-dark navbar-expand-lg" style="background-color: maroon">
+                <a  href="">
+                    <img src="../../../pub/images/logoheader.png"  alt="">
                 </a>
                 <button data-toggle="collapse" data-target="#navbarToggler" type="button" class="navbar-toggler"><span
                         class="navbar-toggler-icon"></span></button>
@@ -70,18 +56,13 @@
                             <a class="nav-link" href="#">Contact Us</a>
                         </li>
                         <li class="nav-item">
-
                             <button style="background-color: #bc987e; font-style: italic; border: none; border-radius: 25px; color: #333; /* Dark grey */ padding: 5px 22px">Logout</button>
                         </li>
                     </ul>
                 </div>
                 <form class="form-inline my-2 my-lg-0">
-
                     <input class="form-control mr-sm-50" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
-
             </div>
-        </div>
-    </div>
 </header>

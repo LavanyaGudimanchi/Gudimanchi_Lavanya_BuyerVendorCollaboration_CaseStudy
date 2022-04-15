@@ -3,7 +3,7 @@
     <div class="container top-footer">
         <div class="row">
             <div class="col-md-3">
-                <img class="img-fluid" src="images/logofooter.png.png" alt="">
+                <img class="img-fluid" src="../../../pub/images/logofooter.png" alt="">
                 <p>Srila is a buyer vendor collbration where all vendors can signup and add thier products...
                     <a href="">Read more</a>
                 </p>
