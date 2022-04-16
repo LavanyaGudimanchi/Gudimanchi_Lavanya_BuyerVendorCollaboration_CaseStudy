@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>How to Create responsive Homepage</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../../../pub/css/main.css">
+    <link rel="stylesheet" href="../../../pub/css/mainheader.css">
 </head>
 <body>
     <header>

@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<%@taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <html lang="en">
 <head>
     <!-- Required meta tags -->
@@ -14,6 +13,7 @@
 
     <!-- Our Custom CSS style sheet -->
     <link rel="stylesheet" href="../../../pub/css/header.css">
+    <link rel="stylesheet" href="../../../pub/css/productlink.css">
 
 </head>
 

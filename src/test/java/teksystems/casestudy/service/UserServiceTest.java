@@ -24,13 +24,13 @@ class UserServiceTest {
     void saveUser() {
         User user = new User();
 
-//        user.setFirstName("First");
-//        user.setLastName("Last");
-//        user.setEmail("abc@mnc.com");
-//        user.setLoginId("user");
-//        user.setPassword("user");
-//        user.setCompanyName("company");
-//        user.setPhoneNumber(1234567L);
+        user.setFirstName("First");
+        user.setLastName("Last");
+        user.setEmail("abc@mnc.com");
+        user.setLoginId("user");
+        user.setPassword("user");
+        user.setCompanyName("company");
+        user.setPhoneNumber(1234567L);
 
         Assertions.assertEquals(user, us.saveUser(user));
 
@@ -40,14 +40,14 @@ class UserServiceTest {
     @Transactional
     void validateUser() {
         User user = new User();
-//        user.setId(1);
-//        user.setFirstName("First");
-//        user.setLastName("Last");
-//        user.setEmail("abc@mnc.com");
-//        user.setLoginId("user");
-//        user.setPassword("user");
-//        user.setCompanyName("company");
-//        user.setPhoneNumber(1234567L);
+        user.setId(1);
+        user.setFirstName("First");
+        user.setLastName("Last");
+        user.setEmail("abc@mnc.com");
+        user.setLoginId("user");
+        user.setPassword("user");
+        user.setCompanyName("company");
+        user.setPhoneNumber(1234567L);
 
         Assertions.assertEquals(user, us.validateUser("user","user"));
 

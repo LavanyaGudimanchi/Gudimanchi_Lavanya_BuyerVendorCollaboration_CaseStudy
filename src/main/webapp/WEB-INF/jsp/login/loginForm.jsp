@@ -1,17 +1,15 @@
 <jsp:include page="../include/header.jsp" />
-<form:form >
+<form style="margin: auto; width: 400px; margin-top: 5rem;" action="/login/loginForm" method="POST">
 <h2 align="center">Login</h2>
     <!-- Email input -->
-    <h2>${welcomemessage}</h2>
-    <h3>${message}</h3>
-    <div class="form-outline mb-4">
-      <input type="username" id="form2Example1" class="form-control" value="${user.getFirstName}"/>
+      <div class="form-outline mb-4">
+      <input type="username" id="form2Example1" class="form-control" name="username" value="${username}"/>
       <label class="form-label" for="form2Example1" >Login Id</label>
     </div>
 
     <!-- Password input -->
     <div class="form-outline mb-4">
-      <input type="password" id="form2Example2" class="form-control" />
+      <input type="password" id="form2Example2" class="form-control" name="password" value="${password}" />
       <label class="form-label" for="form2Example2">Password</label>
     </div>
 
@@ -35,6 +33,6 @@
     <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
 
 
-  </fo:form>
+  </form>
 
 <jsp:include page="../include/footer.jsp" />

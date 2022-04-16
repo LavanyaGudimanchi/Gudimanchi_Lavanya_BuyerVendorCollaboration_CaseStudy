@@ -16,7 +16,6 @@ public class ModelViewController {
 
 //    @ModelAttribute("user")
 //    public UserCopy myuser() {
-//
 //        UserCopy user = new UserCopy();
 //        user.firstName= "First";
 //        user.lastName = "Last";
@@ -25,17 +24,17 @@ public class ModelViewController {
 //        return user;
 //    }
 
-    @RequestMapping(value = "/login/login", method = RequestMethod.GET)
-    public ModelAndView login(@ModelAttribute ("user")UserCopy user) throws Exception {
-        ModelAndView response = new ModelAndView();
-        response.setViewName("login/loginForm");
-        user.firstName= "First";
-        user.lastName = "Last";
-        user.email = "abc@mnc.com";
-        user.loginId= "user";
-        response.addObject(user);
-        return response;
-    }
+//    @RequestMapping(value = "/login/login", method = RequestMethod.GET)
+//    public ModelAndView login(@ModelAttribute ("user")UserCopy user) throws Exception {
+//        ModelAndView response = new ModelAndView();
+//        response.setViewName("login/loginForm");
+//        user.firstName= "First";
+//        user.lastName = "Last";
+//        user.email = "abc@mnc.com";
+//        user.loginId= "user";
+//        response.addObject("user",user);
+//        return response;
+//    }
 
 //    @GetMapping("/login/loginForm")
 //    public String passParameterswithModel(Model model)
@@ -45,13 +44,13 @@ public class ModelViewController {
 //        return "/login/loginForm";
 //    }
 
-    @GetMapping("/login/loginForm")
-    public ModelAndView passParameterswithModel()
-    {
-        ModelAndView modelandview = new ModelAndView("/login/loginForm");
-        modelandview.addObject("message", "Perscholas");
-        modelandview.addObject("welcomemessage", "Welcome");
-        return modelandview;
-    }
+//    @GetMapping("/login/loginForm")
+//    public ModelAndView passParameterswithModel()
+//    {
+//        ModelAndView modelandview = new ModelAndView("/login/loginForm");
+//        modelandview.addObject("message", "Perscholas1");
+//        modelandview.addObject("welcomemessage", "Welcome2");
+//        return modelandview;
+//    }
 
 }
