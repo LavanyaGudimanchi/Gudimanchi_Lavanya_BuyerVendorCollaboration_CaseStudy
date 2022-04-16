@@ -6,13 +6,19 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import teksystems.casestudy.database.entity.User;
+import teksystems.casestudy.service.ProductService;
 import teksystems.casestudy.service.UserService;
+
+import java.util.List;
 
 @Controller
 public class LoginController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private ProductService productService;
 
     @GetMapping("/login/login")
     public ModelAndView login() throws Exception {
@@ -34,7 +40,9 @@ public class LoginController {
         }
         else
         {
-            response.setViewName("admin/adminHome");
+            List<String> categories = productService.getAllCategories();
+            response.addObject("categories", categories);
+           response.setViewName("admin/adminHome");
 
         }
 

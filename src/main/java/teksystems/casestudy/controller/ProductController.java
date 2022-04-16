@@ -20,9 +20,19 @@ public class ProductController {
     @GetMapping("admin/products/{category}")
     public ModelAndView productslist(@PathVariable("category") String category) throws Exception {
         ModelAndView response = new ModelAndView();
-        response.setViewName("admin/produccts");
-        List<Product> products = productService.getProducts(category);
+        response.setViewName("admin/products");
+        List<Product> products = productService.getProducts("Ikat");
         response.addObject("products", products);
+        return response;
+    }
+
+    @GetMapping("admin/adminHome")
+    public ModelAndView categoriesList() throws Exception {
+        ModelAndView response = new ModelAndView();
+        response.setViewName("admin/adminHome");
+
+        List<String> categories = productService.getAllCategories();
+        response.addObject("categories", categories);
         return response;
     }
 }

@@ -29,7 +29,7 @@ public class Product{
     private Double price;
 
     @Column(name ="isAvailable")
-    private boolean isAvailable;
+    private Boolean isAvailable;
 
     @Column(name ="category")
     private String category;

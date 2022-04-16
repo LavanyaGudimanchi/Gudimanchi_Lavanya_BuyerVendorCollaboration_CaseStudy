@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html lang="en">
 <head>
     <!-- Required meta tags -->
@@ -27,33 +28,25 @@
                         class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarToggler">
                     <ul class="navbar-nav">
-
                         <li class="nav-item">
                             <a class="nav-link" href="#">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">About Us</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" href="#">Categories</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Lenin</a>
-                                <a class="dropdown-item" href="#">Cotton</a>
-                                <a class="dropdown-item" href="#">Kalamkari</a>
-                                <a class="dropdown-item" href="#">Ikat</a>
-                                <a class="dropdown-item" href="#">Denim</a>
-                                <a class="dropdown-item" href="#">Crepe</a>
-                                <a class="dropdown-item" href="#">Pure silk</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Lenin</a>
-
-                            </div>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Testimonials</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contact Us</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" >Categories</a>
+                            <div class="dropdown-menu">
+                                <c:forEach items="${categories}" var="category" varStatus="tagStatus">
+                                    <a class="dropdown-item" href="../admin/products/${category}">${category}</a>
+                                </c:forEach>
+                            </div>
                         </li>
                         <li class="nav-item">
                             <button style="background-color: #bc987e; font-style: italic; border: none; border-radius: 25px; color: #333; /* Dark grey */ padding: 5px 22px">Logout</button>
