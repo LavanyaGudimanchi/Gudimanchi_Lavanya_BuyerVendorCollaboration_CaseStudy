@@ -44,7 +44,7 @@
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" >Categories</a>
                             <div class="dropdown-menu">
                                 <c:forEach items="${categories}" var="category" varStatus="tagStatus">
-                                    <a class="dropdown-item" href="../admin/products/${category}">${category}</a>
+                                    <a class="dropdown-item" href="../products/products/${category}">${category}</a>
                                 </c:forEach>
                             </div>
                         </li>

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import teksystems.casestudy.database.entity.Product;
 import teksystems.casestudy.database.entity.User;
 import teksystems.casestudy.service.ProductService;
 import teksystems.casestudy.service.UserService;
@@ -40,9 +41,20 @@ public class LoginController {
         }
         else
         {
-            List<String> categories = productService.getAllCategories();
-            response.addObject("categories", categories);
-           response.setViewName("admin/adminHome");
+            if(user.isBuyer())
+            {
+                List<String> categories = productService.getAllCategories();
+                response.addObject("categories", categories);
+                response.setViewName("admin/adminHome");
+            }
+            else {
+                response.setViewName("products/products");
+                List<Product> products = productService.getProductsByUser(user);
+                response.addObject("products", products);
+
+            }
+
+
 
         }
 

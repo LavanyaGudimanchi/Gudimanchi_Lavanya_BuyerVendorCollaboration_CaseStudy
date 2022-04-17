@@ -14,10 +14,19 @@ public class ProductService {
     @Autowired
     private ProductDAO productdao;
 
-    public List<Product> getProducts(String category) {
+    public List<Product> getProductsByCategory(String category) {
 
         return productdao.findByCategory(category);
 
+    }
+
+    public List<Product> getProductsByUser(User user) {
+
+        return productdao.findByVendorId(user.getId());
+
+    }
+    public Product save(Product product){
+        return productdao.save(product);
     }
 
     public List<String> getAllCategories()
