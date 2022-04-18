@@ -1,5 +1,5 @@
 <jsp:include page="../include/header.jsp" />
-<form style="margin: auto; width: 400px; margin-top: 5rem;" action="/login/loginForm" method="POST">
+<form style="margin: auto; width: 400px; margin-top: 5rem;" action="/login/loginSubmit" method="POST">
 <h2 align="center">Login</h2>
     <!-- Email input -->
       <div class="form-outline mb-4">

@@ -9,15 +9,15 @@ import teksystems.casestudy.service.ProductService;
 import java.util.List;
 
 @Controller
-public class AdminController {
+public class BuyerController {
 
     @Autowired
     private ProductService productService;
 
-    @GetMapping("admin/adminHome")
+    @GetMapping("buyer/categories")
     public ModelAndView categoriesList() throws Exception {
         ModelAndView response = new ModelAndView();
-        response.setViewName("admin/adminHome");
+        response.setViewName("buyer/categories");
         List<String> categories = productService.getAllCategories();
         response.addObject("categories", categories);
         return response;

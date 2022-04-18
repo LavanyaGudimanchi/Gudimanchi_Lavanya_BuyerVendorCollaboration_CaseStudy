@@ -3,16 +3,15 @@
 <h2>Products List</h2>
 <table>
     <tr>
+        <th>Select Items</th>
         <th>Product Name</th>
         <th>Product Description</th>
         <th>Price</th>
-        <th>Select Items</th>
     </tr>
     <c:forEach items="${products}" var="product" varStatus="tagStatus">
-
         <tr>
             <td>
-                <input type="checkbox" name="productId" value="${product.productId}">
+                <input type="checkbox" name="productId" value="${product.id}">
             </td>
             <td>${product.productName}</td>
             <td>${product.productDescription}</td>
@@ -21,7 +20,7 @@
     </c:forEach>
 </table>
 <!-- Submit button -->
-<form class="form-inline my-2 my-lg-0" action="/user/addProduct" method="GET">
+<form class="form-inline my-2 my-lg-0" action="/vendor/addProduct" method="GET">
     <button type="submit" class="btn btn-primary btn-block mb-4">Add new Product</button>
 </form>
 <!-- Add to cart button -->

@@ -29,7 +29,7 @@ public class LoginController {
     }
 
 
-    @PostMapping("/login/loginForm")
+    @PostMapping("/login/loginSubmit")
     public ModelAndView loginSubmit(@RequestParam(value = "username", required = false) String username,
                                     @RequestParam(value = "password", required = false) String password)
                                                     throws Exception {
@@ -45,7 +45,7 @@ public class LoginController {
             {
                 List<String> categories = productService.getAllCategories();
                 response.addObject("categories", categories);
-                response.setViewName("admin/adminHome");
+                response.setViewName("buyer/categories");
             }
             else {
                 response.setViewName("products/products");
