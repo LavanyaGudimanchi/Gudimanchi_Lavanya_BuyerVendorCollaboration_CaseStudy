@@ -29,7 +29,7 @@ public class CasestudySecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
-                    .antMatchers("/pub/**", "/error/**", "/login/**", "/index/**", "/").permitAll()
+                    .antMatchers("/pub/**", "/error/**", "/login/**", "/index/**").permitAll()
                     .antMatchers("/buyer/**", "/products/**", "/vendor/**").authenticated()
                     .and()
                 .formLogin()

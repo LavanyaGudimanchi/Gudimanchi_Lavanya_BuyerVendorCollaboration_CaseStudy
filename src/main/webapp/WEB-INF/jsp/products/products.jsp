@@ -9,7 +9,12 @@
 </sec:authorize>
         <th>Product Name</th>
         <th>Product Description</th>
+        <th>Category</th>
         <th>Price</th>
+        <th>Availability</th>
+<sec:authorize access="hasAuthority('VENDOR')">
+    <th>Update</th>
+</sec:authorize>
     </tr>
     <c:forEach items="${products}" var="product" varStatus="tagStatus">
         <tr>
@@ -20,7 +25,14 @@
             </sec:authorize>
             <td>${product.productName}</td>
             <td>${product.productDescription}</td>
+            <td>${product.category}</td>
             <td>${product.price}</td>
+            <td >${product.isAvailable}</td>
+            <sec:authorize access="hasAuthority('VENDOR')">
+                <td>
+                    <a href="/vendor/addProduct/${product.id}" value="${product.id}">Eidt/Delete</a>
+                </td>
+            </sec:authorize>
         </tr>
     </c:forEach>
 </table>

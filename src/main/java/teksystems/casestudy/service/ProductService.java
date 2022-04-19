@@ -26,7 +26,13 @@ public class ProductService {
 
     }
     public Product save(Product product){
+
         return productdao.save(product);
+
+    }
+
+    public Product getProductById(Integer Id){
+        return productdao.getById(Id);
     }
 
     public List<String> getAllCategories()

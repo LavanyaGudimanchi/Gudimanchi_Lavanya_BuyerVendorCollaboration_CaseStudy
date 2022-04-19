@@ -3,10 +3,7 @@ package teksystems.casestudy.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import teksystems.casestudy.database.entity.Product;
 import teksystems.casestudy.database.entity.User;
@@ -34,13 +31,49 @@ public class ProductController {
     }
 
     @GetMapping("products/products")
-    public ModelAndView productslistbyCategory()  throws Exception {
+    public ModelAndView productslistbyUser()  throws Exception {
+
+        return returnProductsByUser();
+    }
+
+    @GetMapping("vendor/addProduct")
+    public ModelAndView addProduct(@ModelAttribute("product") Product product) throws Exception {
+        ModelAndView response = new ModelAndView();
+        response.setViewName("vendor/addProduct");
+        List<String> categories = productService.getAllCategories();
+        response.addObject("categories", categories);
+        response.addObject("product", product);
+        return response;
+    }
+
+    @GetMapping("vendor/addProduct/{productId}")
+    public ModelAndView editProduct(@PathVariable("productId") Integer productId) throws Exception {
+        ModelAndView response = new ModelAndView();
+        response.setViewName("vendor/addProduct");
+        List<String> categories = productService.getAllCategories();
+        response.addObject("categories", categories);
+        response.addObject("product", productService.getProductById(productId));
+        return response;
+    }
+
+    @PostMapping("vendor/saveProduct")
+    public ModelAndView saveProduct(@ModelAttribute("product") Product product) throws Exception {
+        product.setVendor(authenticatedUserService.getCurrentUser());
+        productService.save(product);
+        return returnProductsByUser();
+    }
+
+    private ModelAndView returnProductsByUser()
+    {
         ModelAndView response = new ModelAndView();
         response.setViewName("products/products");
         List<Product> products = productService.getProductsByUser(authenticatedUserService.getCurrentUser());
         response.addObject("products", products);
+
         return response;
     }
+
+
 
 
 }
