@@ -27,11 +27,11 @@ public class MyAuthenticationSuccessHandler implements AuthenticationSuccessHand
         redirectStrategy.sendRedirect(request, response, targetUrl);
 
 //        USe if needed to clear session attributes
-//        HttpSession session = request.getSession(false);
-//        if (session == null) {
-//            return;
-//        }
-//        session.removeAttribute(WebAttributes.AUTHENTICATION_EXCEPTION);
+        HttpSession session = request.getSession(false);
+        if (session == null) {
+            return;
+        }
+        session.removeAttribute(WebAttributes.AUTHENTICATION_EXCEPTION);
     }
 
     protected String determineTargetUrl(final Authentication authentication) {

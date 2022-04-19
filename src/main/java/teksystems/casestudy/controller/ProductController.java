@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 import teksystems.casestudy.database.entity.Product;
 import teksystems.casestudy.database.entity.User;
+import teksystems.casestudy.security.AuthenticatedUserService;
 import teksystems.casestudy.service.ProductService;
 import teksystems.casestudy.service.UserService;
 
@@ -20,11 +21,23 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
+    @Autowired
+    private AuthenticatedUserService authenticatedUserService;
+
     @GetMapping("products/products/{category}")
     public ModelAndView productslistbyCategory(@PathVariable("category") String category) throws Exception {
         ModelAndView response = new ModelAndView();
         response.setViewName("products/products");
         List<Product> products = productService.getProductsByCategory(category);
+        response.addObject("products", products);
+        return response;
+    }
+
+    @GetMapping("products/products")
+    public ModelAndView productslistbyCategory()  throws Exception {
+        ModelAndView response = new ModelAndView();
+        response.setViewName("products/products");
+        List<Product> products = productService.getProductsByUser(authenticatedUserService.getCurrentUser());
         response.addObject("products", products);
         return response;
     }

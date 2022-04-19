@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <html lang="en">
 <head>
     <!-- Required meta tags -->
@@ -40,17 +41,22 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contact Us</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" >Categories</a>
-                            <div class="dropdown-menu">
-                                <c:forEach items="${categories}" var="category" varStatus="tagStatus">
-                                    <a class="dropdown-item" href="../products/products/${category}">${category}</a>
-                                </c:forEach>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <button style="background-color: #bc987e; font-style: italic; border: none; border-radius: 25px; color: #333; /* Dark grey */ padding: 5px 22px">Logout</button>
-                        </li>
+                        <sec:authorize access="hasAuthority('BUYER')">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" >Categories</a>
+                                <div class="dropdown-menu">
+                                    <c:forEach items="${categories}" var="category" varStatus="tagStatus">
+                                        <a class="dropdown-item" href="../products/products/${category}">${category}</a>
+                                    </c:forEach>
+                                </div>
+                            </li>
+                        </sec:authorize>
+                       <sec:authorize access="isAuthenticated()">
+                            <li class="nav-item">
+                                <button style="background-color: #bc987e; font-style: italic; border: none; border-radius: 25px; color: #333; /* Dark grey */ padding: 5px 22px">Logout</button>
+                            </li>
+                        </sec:authorize>
+
                     </ul>
                 </div>
                 <form class="form-inline my-2 my-lg-0">

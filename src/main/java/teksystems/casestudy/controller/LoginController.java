@@ -29,36 +29,36 @@ public class LoginController {
     }
 
 
-    @PostMapping("/login/loginSubmit")
-    public ModelAndView loginSubmit(@RequestParam(value = "username", required = false) String username,
-                                    @RequestParam(value = "password", required = false) String password)
-                                                    throws Exception {
-        ModelAndView response = new ModelAndView();
-        User user = userService.validateUser(username,password);
-        if (user == null)
-        {
-            response.setViewName("login/loginForm");
-        }
-        else
-        {
-            if(user.isBuyer())
-            {
-                List<String> categories = productService.getAllCategories();
-                response.addObject("categories", categories);
-                response.setViewName("buyer/categories");
-            }
-            else {
-                response.setViewName("products/products");
-                List<Product> products = productService.getProductsByUser(user);
-                response.addObject("products", products);
-
-            }
-
-
-
-        }
-
-        return response;
-    }
+//    @PostMapping("/login/loginSubmit")
+//    public ModelAndView loginSubmit(@RequestParam(value = "username", required = false) String username,
+//                                    @RequestParam(value = "password", required = false) String password)
+//                                                    throws Exception {
+//        ModelAndView response = new ModelAndView();
+//        User user = userService.validateUser(username,password);
+//        if (user == null)
+//        {
+//            response.setViewName("login/loginForm");
+//        }
+//        else
+//        {
+//            if(user.isBuyer())
+//            {
+//                List<String> categories = productService.getAllCategories();
+//                response.addObject("categories", categories);
+//                response.setViewName("buyer/categories");
+//            }
+//            else {
+//                response.setViewName("products/products");
+//                List<Product> products = productService.getProductsByUser(user);
+//                response.addObject("products", products);
+//
+//            }
+//
+//
+//
+//        }
+//
+//        return response;
+//    }
 
 }
