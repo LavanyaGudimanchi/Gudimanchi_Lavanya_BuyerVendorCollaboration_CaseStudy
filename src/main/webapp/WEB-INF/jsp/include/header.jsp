@@ -53,15 +53,19 @@
                         </sec:authorize>
                        <sec:authorize access="isAuthenticated()">
                             <li class="nav-item">
-                                <button style="background-color: #bc987e; font-style: italic; border: none; border-radius: 25px; color: #333; /* Dark grey */ padding: 5px 22px">Logout</button>
+                                <button style="background-color: #bc987e; font-style: italic; border: none; border-radius: 25px; color: #333; /* Dark grey */ padding: 5px 22px" onsubmit="logout">Logout</button>
+                                <a href="/login/logout">Logout</a>
+                                &nbsp; | &nbsp; <sec:authentication property="principal.username" />
                             </li>
                         </sec:authorize>
 
                     </ul>
                 </div>
+            <sec:authorize access="isAuthenticated()">
                 <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-50" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
+            </sec:authorize>
             </div>
 </header>

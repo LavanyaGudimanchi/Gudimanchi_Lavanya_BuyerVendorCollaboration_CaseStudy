@@ -15,11 +15,10 @@ public class CartController {
     @Autowired
     private OrderLineService orderLineService;
 
-    @GetMapping("products/addtoCart")
+    @GetMapping("buyer/addToCart")
     public ModelAndView addtoCart(@ModelAttribute("orderLine") OrderLine orderLine) throws Exception {
         ModelAndView response = new ModelAndView();
-        response.setViewName("products/shoppingcart");
-
+        response.setViewName("buyer/shoppingcart");
         orderLineService.save(orderLine);
         return response;
     }

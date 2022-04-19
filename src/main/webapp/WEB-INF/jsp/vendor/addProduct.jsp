@@ -27,12 +27,8 @@
 
     </div>
     <div class="col-12">
-        <div class="form-check">
-            <form:checkbox path="isAvailable" class="form-check-input"  id="gridCheck"/>
-            <label class="form-check-label" for="gridCheck">
-                is Available
-            </label>
-        </div>
+            <form:radiobutton path="isAvailable" value="Y"/>Available
+            <form:radiobutton path="isAvailable" value="N"/>Out of Stock
     </div>
     <div class="col-12">
         <button type="submit" class="btn btn-primary">Sign in</button>

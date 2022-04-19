@@ -22,6 +22,9 @@ import teksystems.casestudy.database.entity.User;
 @Component
 public class AuthenticatedUserService {
 
+    @Autowired
+    private UserDAO userDao;
+
     public String getCurrentUsername() {
         SecurityContext context = SecurityContextHolder.getContext();
         if (context != null && context.getAuthentication() != null) {
@@ -51,6 +54,15 @@ public class AuthenticatedUserService {
         HttpSession session = attr.getRequest().getSession(true); // true == allow create
         User user = (User) session.getAttribute("user");
         return user;
+    }
+
+    public void setCurrentUser() {
+        ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+        HttpSession session = attr.getRequest().getSession(true); // true == allow create
+
+        User user = userDao.findByLoginId(getCurrentUsername());
+        session.setAttribute("user", user);
+
     }
 
     public boolean isAuthenticated() {
