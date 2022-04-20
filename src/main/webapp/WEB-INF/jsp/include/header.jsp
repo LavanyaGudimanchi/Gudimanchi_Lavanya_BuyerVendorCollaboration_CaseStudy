@@ -55,7 +55,7 @@
                        <sec:authorize access="isAuthenticated()">
                             <li class="nav-item">
                                 <a  style="background-color: #bc987e; font-style: italic; border: none; border-radius: 25px; color: #333; /* Dark grey */ padding: 5px 22px" href="/login/logout">Logout</a>
-                                &nbsp; | &nbsp; <sec:authentication property="principal.username" />
+                                &nbsp; | &nbsp;<a style="color: white"> <sec:authentication property="principal.username"  /> </a>
                             </li>
                         </sec:authorize>
 

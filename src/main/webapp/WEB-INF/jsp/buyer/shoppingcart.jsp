@@ -1,5 +1,5 @@
 <jsp:include page="../include/header.jsp"/>
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <section class="h-100" style="background-color: #eee;">
     <div class="container h-100 py-5">
         <div class="row d-flex justify-content-center align-items-center h-100">
@@ -13,12 +13,13 @@
                     </div>
                 </div>
 
-                <div class="card rounded-3 mb-4">
+<c:forEach items="${orderLines}" var="orderLine" varStatus="tagStatus">
+                  <div class="card rounded-3 mb-4">
                     <div class="card-body p-4">
                         <div class="row d-flex justify-content-between align-items-center">
                             <div class="col-md-3 col-lg-3 col-xl-3">
-                                <p class="lead fw-normal mb-2">Product Name</p>
-                                <p><span class="text-muted">Description: </span>
+                                <p class="lead fw-normal mb-2"><b>Product: </b>${orderLine.product.productName}</p>
+                                <p><span class="text-muted"><b>Description:</b> ${orderLine.product.productName}</span>
                             </div>
                             <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
                                 <button class="btn btn-link px-2"
@@ -26,8 +27,8 @@
                                     <i class="fas fa-minus"></i>
                                 </button>
 
-                                <input id="form1" min="0" name="quantity" value="2" type="number"
-                                       class="form-control form-control-sm" />
+                                <input id="form1" min="0" name="quantity" value="${orderLine.quantity}" type="number"
+                                       class="form-control form-control-sm" > </input>
 
                                 <button class="btn btn-link px-2"
                                         onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
@@ -35,7 +36,7 @@
                                 </button>
                             </div>
                             <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                                <h5 class="mb-0">$499.00</h5>
+                                <h5 class="mb-0"><b>$ ${orderLine.product.price}</b></h5>
                             </div>
                             <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                                 <a href="#!" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
@@ -43,9 +44,10 @@
                         </div>
                     </div>
                 </div>
+</c:forEach>
                  <div class="card">
                     <div class="card-body">
-                        <button type="button" class="btn btn-warning btn-block btn-lg">Proceed to Pay</button>
+                        <button type="button" class="btn btn-warning btn-block btn-lg">Place Your Order</button>
                     </div>
                 </div>
             </div>
