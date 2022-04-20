@@ -2,120 +2,78 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-<form:form class="row g-3" action="registerUser" method="POST" modelAttribute="user">
-    <div><h1>User Registaration Form</h1></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-10">
-                <label for="fname">First Name:</label>
-            </div>
-            <div class="col-90">
-                <form:input type="text" id="fname" name="firstname" placeholder="Enter your first name"
-                            path="firstName"/>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-10">
-                <label for="lname">Last Name:</label>
-            </div>
-            <div class="col-90">
-                <form:input type="text" id="lname" name="lastname" placeholder="Enter your last name" path="lastName"/>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-10">
-                <label for="email">Email:</label>
-            </div>
-            <div class="col-90">
-                <form:input type="email" id="email" name="email" placeholder="it should contain @,." path="email"/>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-10">
-                <label for="password">Password:</label>
-            </div>
-            <div class="col-90">
-                <form:input type="password" id="password" name="password" maxlength="8" path="password"/>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-10">
-                <label for="password">Confirm Password:</label>
-            </div>
-            <div class="col-90">
-                <form:input type="password" id="cpassword" name="cpassword" maxlength="8" path="confirmPassword"/>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-10">
-                <label for="mobile">Mobile:</label>
-            </div>
-            <div class="col-90">
-                <form:input type="tel" id="mobile" name="mobile" placeholder="only 10 digits are allowed" path="phoneNumber"/>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-10">
-                <label for="cname">Company Name:</label>
-            </div>
-            <div class="col-90">
-                <form:input type="text" id="cname" name="companyname" placeholder="Enter your Company name" path="companyName"/>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-10">
-                <label for="uname">User Name:</label>
-            </div>
-            <div class="col-90">
-                <form:input type="text" id="uname" name="username" placeholder="Enter your User name" path="loginId"/>
-            </div>
+    <form:form style="margin: auto; width: 400px; margin-top: 3rem;" action="registerSubmit" method="POST" modelAttribute="user">
+        <h2 align="center">User Register Form</h2>
+        <div class="form-outline mb-4">
+            <label class="form-label" for="firstName" >First Name</label>
+            <form:input type="firstName" id="firstName" class="form-control" name="firstName"  path="firstName"/>
         </div>
 
-        <div class="row">
-            <div class="col-10">
-                <label for="fname">Address Line1:</label>
-            </div>
-            <div class="col-90">
-                <form:input type="text" id="addressline1" name="addressline1" placeholder="Address Line1" path="addressLine1"/>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-10">
-                <label for="fname">Address Line2:</label>
-            </div>
-            <div class="col-90">
-                <form:input type="text" id="addressline2" name="addressline2" placeholder="Address Line2" path="addressLine2"/>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-10">
-                <label for="city">City:</label>
-            </div>
-            <div class="col-90">
-                <form:input type="text" id="city" name="city" maxlength="10" path="city"/>
-            </div>
+        <div class="form-outline mb-4">
+            <label class="form-label" for="lastName">Last Name</label>
+            <form:input type="lastName" id="lastName" class="form-control" name="username" path="lastName"/>
         </div>
 
-        <div class="row">
-            <div class="col-10">
-                <label for="state">State:</label>
-            </div>
-            <div class="col-90">
-                <form:input type="text" id="state" name="state" path="state"/>
-            </div>
+        <div class="form-outline mb-4">
+            <label class="form-label" for="email" >Email</label>
+            <form:input type="email" id="email" class="form-control" name="email"  path="email"/>
         </div>
-        <div class="row">
-            <div class="col-10">
-                <label for="pin">Area PIN:</label>
-            </div>
-            <div class="col-90">
-                <form:input type="number" id="pin" name="pin" maxlength="6" path="zipcode"/>
-            </div>
+
+
+        <div class="form-outline mb-4">
+            <label class="form-label" for="Password" >Confirm Password</label>
+            <form:input type="password" id="password" class="form-control" name="confirmPassword"  path="password"/>
         </div>
-        <div class="row">
-            <input type="submit" value="Registered">
+
+        <div class="form-outline mb-4">
+            <label class="form-label" for="confirmpassword" >Password</label>
+            <form:input type="password" id="confirmpassword" class="form-control" name="password"  path="confirmPassword"/>
         </div>
-    </div>
+
+        <div class="form-outline mb-4">
+            <label class="form-label" for="phonenumber" >Phone Number</label>
+            <form:input type="phoneNumber" id="phonenumber" class="form-control" name="phoneNumber"  path="phoneNumber"/>
+        </div>
+
+        <div class="form-outline mb-4">
+            <label class="form-label" for="companyname" >Company Name</label>
+            <form:input type="companyName" id="companyname" class="form-control" name="companyName"  path="companyName"/>
+        </div>
+
+        <div class="form-outline mb-4">
+            <label class="form-label" for="loginid" >Login Id</label>
+            <form:input type="loginId" id="loginid" class="form-control" name="loginId"  path="loginId"/>
+        </div>
+
+        <div class="form-outline mb-4">
+            <label class="form-label" for="addressline1" >Address Line1</label>
+            <form:input type="addressLine1" id="addressline1" class="form-control" name="addressLine1"  path="addressLine1"/>
+        </div>
+
+        <div class="form-outline mb-4">
+            <label class="form-label" for="addressline2" >Address Line2</label>
+            <form:input type="addressLine2" id="addressline2" class="form-control" name="addressLine2"  path="addressLine2"/>
+        </div>
+
+
+        <div class="form-outline mb-4">
+            <label class="form-label" for="city" >City</label>
+            <form:input type="city" id="city" class="form-control" name="city"  path="city"/>
+        </div>
+
+        <div class="form-outline mb-4">
+            <label class="form-label" for="state" >State</label>
+            <form:input type="state" id="state" class="form-control" name="state"  path="state"/>
+        </div>
+
+        <div class="form-outline mb-4">
+            <label class="form-label" for="zipcode" >Zipcode</label>
+            <form:input type="zipcode" id="zipcode" class="form-control" name="zipcode"  path="zipcode"/>
+        </div>
+
+        <form:button type="submit" class="btn btn-primary btn-block mb-4">Register</form:button>
+
+
 </form:form>
 
 <jsp:include page="../include/footer.jsp"/>

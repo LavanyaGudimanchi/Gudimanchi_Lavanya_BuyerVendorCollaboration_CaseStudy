@@ -24,6 +24,9 @@ public class Order {
     @Temporal(TemporalType.TIMESTAMP)
     private Date createDate = new Date();
 
+    @Column(name="status")
+    private String status;
+
     @ManyToOne
     private User buyer;
 

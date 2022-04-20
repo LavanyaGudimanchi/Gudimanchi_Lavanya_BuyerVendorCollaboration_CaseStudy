@@ -56,10 +56,16 @@ public class ProductController {
         return response;
     }
 
-    @PostMapping("vendor/saveProduct")
+    @RequestMapping(value = "vendor/saveProduct", method=RequestMethod.POST, params = "save")
     public ModelAndView saveProduct(@ModelAttribute("product") Product product) throws Exception {
         product.setVendor(authenticatedUserService.getCurrentUser());
         productService.save(product);
+        return returnProductsByUser();
+    }
+
+    @RequestMapping(value = "vendor/saveProduct", method=RequestMethod.POST, params = "delete")
+    public ModelAndView deleteProduct(@ModelAttribute("product") Product product) throws Exception {
+        productService.delete(product);
         return returnProductsByUser();
     }
 
@@ -69,7 +75,6 @@ public class ProductController {
         response.setViewName("products/products");
         List<Product> products = productService.getProductsByUser(authenticatedUserService.getCurrentUser());
         response.addObject("products", products);
-
         return response;
     }
 

@@ -54,7 +54,7 @@ public class CasestudySecurityConfig extends WebSecurityConfigurerAdapter {
     public DaoAuthenticationProvider getAuthenticationProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
         authProvider.setUserDetailsService(userDetailsService);
-        authProvider.setPasswordEncoder(getPasswordEncoder());
+       authProvider.setPasswordEncoder(getPasswordEncoder());
         return authProvider;
     }
 

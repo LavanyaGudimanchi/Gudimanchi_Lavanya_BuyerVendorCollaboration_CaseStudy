@@ -19,4 +19,6 @@ public interface ProductDAO extends JpaRepository<Product, Integer> {
     @Query("select p from Product p where p.vendor.id = ?1")
     List<Product> findByVendorId(Integer vendorId);
 
+
+
 }

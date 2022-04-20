@@ -15,7 +15,8 @@
 
     <!-- Our Custom CSS style sheet -->
     <link rel="stylesheet" href="../../../pub/css/header.css">
-    <link rel="stylesheet" href="../../../pub/css/productlink.css">
+    <!-- <link rel="stylesheet" href="../../../pub/css/productlink.css">
+     <link rel="stylesheet" href="../../../pub/css/register.css"> -->
 
 </head>
 
@@ -53,8 +54,7 @@
                         </sec:authorize>
                        <sec:authorize access="isAuthenticated()">
                             <li class="nav-item">
-                                <button style="background-color: #bc987e; font-style: italic; border: none; border-radius: 25px; color: #333; /* Dark grey */ padding: 5px 22px" onsubmit="logout">Logout</button>
-                                <a href="/login/logout">Logout</a>
+                                <a  style="background-color: #bc987e; font-style: italic; border: none; border-radius: 25px; color: #333; /* Dark grey */ padding: 5px 22px" href="/login/logout">Logout</a>
                                 &nbsp; | &nbsp; <sec:authentication property="principal.username" />
                             </li>
                         </sec:authorize>

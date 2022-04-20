@@ -31,6 +31,11 @@ public class ProductService {
 
     }
 
+    public void delete(Product product)
+    {
+         productdao.delete(product);
+    }
+
     public Product getProductById(Integer Id){
         return productdao.getById(Id);
     }

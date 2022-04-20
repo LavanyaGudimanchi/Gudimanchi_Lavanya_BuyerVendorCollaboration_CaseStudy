@@ -13,5 +13,7 @@ public class OrderLineService {
     private OrderLineDAO orderlinedao;
 
     public void save(OrderLine orderLine) {
+        orderlinedao.save(orderLine);
     }
+
 }
