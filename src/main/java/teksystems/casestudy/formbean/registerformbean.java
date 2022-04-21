@@ -7,6 +7,7 @@ import lombok.ToString;
 import org.hibernate.validator.constraints.Length;
 import teksystems.casestudy.validation.EmailUnique;
 
+import javax.persistence.Column;
 import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -43,7 +44,10 @@ public class registerformbean {
     private String confirmPassword;
 
 
-    @NotBlank(message = "Phone Number can not be empty required")
+    @NotBlank(message = "PhoneNumber can not be empty")
     private String  phoneNumber;
+
+    @NotBlank(message= "Company Name can not be empty ")
+    private String companyName;
 
 }

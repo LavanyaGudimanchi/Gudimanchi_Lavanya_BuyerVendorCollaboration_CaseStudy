@@ -15,8 +15,8 @@
 
     <!-- Our Custom CSS style sheet -->
     <link rel="stylesheet" href="../../../pub/css/header.css">
-    <!-- <link rel="stylesheet" href="../../../pub/css/productlink.css">
-     <link rel="stylesheet" href="../../../pub/css/register.css"> -->
+    <link rel="stylesheet" href="../../../pub/css/productlink.css">
+
 
 </head>
 

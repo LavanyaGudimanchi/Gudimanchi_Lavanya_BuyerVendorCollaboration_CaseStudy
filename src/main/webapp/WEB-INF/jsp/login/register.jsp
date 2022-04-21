@@ -21,13 +21,13 @@
 
 
         <div class="form-outline mb-4">
-            <label class="form-label" for="Password" >Confirm Password</label>
+            <label class="form-label" for="Password" >Password</label>
             <form:input type="password" id="password" class="form-control" name="confirmPassword"  path="password"/>
         </div>
 
         <div class="form-outline mb-4">
-            <label class="form-label" for="confirmpassword" >Password</label>
-            <form:input type="password" id="confirmpassword" class="form-control" name="password"  path="confirmPassword"/>
+            <label class="form-label" for="confirmpassword" >Confirm Password</label>
+            <form:input type="password" id="confirmpassword" class="form-control" name="confirmpassword"  path="confirmPassword"/>
         </div>
 
         <div class="form-outline mb-4">

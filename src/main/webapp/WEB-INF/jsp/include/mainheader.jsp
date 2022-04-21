@@ -29,7 +29,7 @@ We are <span>Creative</span></h1>
 <h4 style="color: #f4f1ee">New Vendor?</h4>
 <a href="login/registerUser" style="width: 200px; color: yellow; background-color: maroon; font-size: 25px; font-stretch: expanded;
 height: 25px;">Sign Up</a>
-<aside style="font-style:italic;color:white; padding:5px;">The best buyer-supplier collaboration programs focus on five elements: segmenting the supplier base (with the goal of identifying suppliers that could become strategic partners); building the capabilities needed to partner effectively; finding incentives and benefits that are shared and that can generate momentum</aside>
+<aside style="font-style:italic;color:white; padding:5px;"></aside>
     </div>
 </header>
 

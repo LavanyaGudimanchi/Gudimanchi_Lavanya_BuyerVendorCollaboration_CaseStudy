@@ -41,13 +41,15 @@
 <!-- Add to cart button -->
 <sec:authorize access="hasAuthority('BUYER')">
     <button type="submit" class="btn btn-primary btn-block mb-4">Add to Cart</button>
-</form>
 </sec:authorize>
+</form>
+<form class="form-inline my-2 my-lg-0" action="/vendor/addProduct" method="GET">
 <!-- Submit button -->
 <sec:authorize access="hasAuthority('VENDOR')">
-    <form class="form-inline my-2 my-lg-0" action="/vendor/addProduct" method="GET">
+
         <button type="submit" class="btn btn-primary btn-block mb-4">Add new Product</button>
-    </form>
+
 </sec:authorize>
 <h3></h3>
+</form>
 <jsp:include page="../include/footer.jsp"/>

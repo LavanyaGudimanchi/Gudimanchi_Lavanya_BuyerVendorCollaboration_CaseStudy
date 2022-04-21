@@ -5,7 +5,7 @@
     <div id="row">
         <div id="column">
             <h3 >Ikat</h3>
-            <a href=""> <img src="../../../pub/images/Ikat.png" alt="" style="width:200px" height="200px"></a>
+            <a href="/products/products/Ikat"> <img src="../../../pub/images/Ikat.png" alt="" style="width:200px" height="200px"></a>
         </div>
         <div id="column">
             <h3>Kalamakari</h3>
