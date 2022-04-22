@@ -38,7 +38,6 @@
     <!-- Submit button -->
     <button type="submit" class="btn btn-primary btn-block mb-4" id="mybutton">Sign in</button>
 
-
   </form>
 
 <jsp:include page="../include/footer.jsp" />

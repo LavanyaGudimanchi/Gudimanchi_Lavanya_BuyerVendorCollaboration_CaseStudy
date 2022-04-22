@@ -36,6 +36,8 @@ public class MyAuthenticationSuccessHandler implements AuthenticationSuccessHand
 
 //      Add User to the session
         authenticatedUserService.setCurrentUser();
+//      Add Categories to the session
+        authenticatedUserService.setCategories();
 
     }
 

@@ -1,6 +1,9 @@
 package teksystems.casestudy.security;
 
 import java.util.Collection;
+import java.util.EnumSet;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpSession;
 
@@ -16,6 +19,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+import teksystems.casestudy.Utils.Categories;
 import teksystems.casestudy.database.dao.UserDAO;
 import teksystems.casestudy.database.entity.User;
 
@@ -62,6 +66,20 @@ public class AuthenticatedUserService {
 
         User user = userDao.findByLoginId(getCurrentUsername());
         session.setAttribute("user", user);
+
+
+
+    }
+    public void setCategories() {
+        ServletRequestAttributes attr = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+        HttpSession session = attr.getRequest().getSession(true); // true == allow create
+
+        List<String> categories = EnumSet.allOf(Categories.class)
+                .stream()
+                .map(Categories::getValue)
+                .collect(Collectors.toList());
+
+        session.setAttribute("categories", categories);
 
     }
 

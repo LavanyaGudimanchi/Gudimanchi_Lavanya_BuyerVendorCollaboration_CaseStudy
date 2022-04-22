@@ -2,7 +2,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <div class="container" >
-    <h2 >My Products</h2>
+    <h2 >Products</h2>
 <form action="/buyer/addToCart" method="POST">
 
 <table>

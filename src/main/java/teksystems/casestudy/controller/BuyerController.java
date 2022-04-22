@@ -16,13 +16,10 @@ public class BuyerController {
     private ProductService productService;
 
 
-
     @GetMapping("buyer/categories")
     public ModelAndView categoriesList() throws Exception {
         ModelAndView response = new ModelAndView();
         response.setViewName("buyer/categories");
-        List<String> categories = productService.getAllCategories();
-        response.addObject("categories", categories);
         return response;
     }
 }

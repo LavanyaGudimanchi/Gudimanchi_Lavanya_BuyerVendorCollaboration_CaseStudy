@@ -40,8 +40,5 @@ public class ProductService {
         return productdao.getById(Id);
     }
 
-    public List<String> getAllCategories()
-    {
-        return productdao.getCategories();
-    }
+
 }

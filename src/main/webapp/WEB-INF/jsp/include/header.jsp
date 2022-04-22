@@ -27,7 +27,6 @@
         }
 
 
-
     </style>
     <!-- Bootstrap and fontawesome CSS -->
 
@@ -39,9 +38,6 @@
     <!-- Our Custom CSS style sheet -->
     <link rel="stylesheet" href="../../../pub/css/header.css">
     <link rel="stylesheet" href="../../../pub/css/productlink.css">
-
-
-
 
 </head>
 
@@ -68,11 +64,16 @@
                             <a class="nav-link" href="#">Contact Us</a>
                         </li>
                         <sec:authorize access="hasAuthority('BUYER')">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/buyer/myorders">My Orders</a>
+                            </li>
+                        </sec:authorize>
+                        <sec:authorize access="hasAuthority('BUYER')">
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" >Categories</a>
                                 <div class="dropdown-menu">
                                     <c:forEach items="${categories}" var="category" varStatus="tagStatus">
-                                        <a class="dropdown-item" href="../products/products/${category}">${category}</a>
+                                        <a class="dropdown-item" href="/products/products/${category}">${category}</a>
                                     </c:forEach>
                                 </div>
                             </li>
@@ -90,8 +91,14 @@
                         </sec:authorize>
                     </ul>
                 </div>
+            <sec:authorize access="hasAuthority('BUYER')">
+                <li class="nav-item">
+                    <a class="nav-link" href="/buyer/shoppingcart">My Cart</a>
+                </li>
+
+            </sec:authorize>
             <sec:authorize access="isAuthenticated()">
-               <li class="nav-item" ><a class="nav-link" style="color: #CD5C5C" > Welcome: <sec:authentication property="principal.username"  /> </a></li>
+               <li class="nav-item" ><a class="nav-link" style="color: #CD5C5C" > Welcome: <c:out value="${user.firstName} "/> <c:out value="${user.lastName }"/> </a></li>
                 <li class="nav-item">
                     <a class="nav-link" background-color="yellow" href="/login/logout">Logout</a>
                 </li>

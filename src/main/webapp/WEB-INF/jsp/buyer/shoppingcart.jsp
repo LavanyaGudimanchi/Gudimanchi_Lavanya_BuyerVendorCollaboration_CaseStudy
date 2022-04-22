@@ -19,24 +19,15 @@
                         <div class="row d-flex justify-content-between align-items-center">
                             <div class="col-md-3 col-lg-3 col-xl-3">
                                 <p class="lead fw-normal mb-2"><b>Product: </b>${orderLine.product.productName}</p>
-                                <p><span class="text-muted"><b>Description:</b> ${orderLine.product.productName}</span>
+                                <p><span class="text-muted"><b>Description:</b> ${orderLine.product.productDescription}</span>
+
                             </div>
-                            <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                                <button class="btn btn-link px-2"
-                                        onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                                    <i class="fas fa-minus"></i>
-                                </button>
-
-                                <input id="form1" min="0" name="quantity" value="${orderLine.quantity}" type="number"
-                                       class="form-control form-control-sm" > </input>
-
-                                <button class="btn btn-link px-2"
-                                        onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                                    <i class="fas fa-plus"></i>
-                                </button>
+                            <div class="col-md-3 col-lg-3 col-xl-3">
+                                <p class="lead fw-normal mb-2"><b>Price: </b>${orderLine.product.price}</p>
+                                <p><span class="text-muted"><b>Qty:</b> ${orderLine.quantity}</span>
                             </div>
                             <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                                <h5 class="mb-0"><b>$ ${orderLine.product.price}</b></h5>
+                                <h5 class="mb-0"><b>$ ${orderLine.quantity * orderLine.product.price}</b></h5>
                             </div>
                             <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                                 <a href="#!" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
@@ -46,8 +37,11 @@
                 </div>
 </c:forEach>
                  <div class="card">
+                     <div align="center">
+                         <h5 class="mb-0"><b>Grand Total : $ ${order.orderTotal}</b></h5>
+                     </div>
                     <div class="card-body">
-                        <button type="button" class="btn btn-warning btn-block btn-lg">Place Your Order</button>
+                        <a type="button" class="btn btn-warning btn-block btn-lg" href="/buyer/placeOrder" >Place Your Order</a>
                     </div>
                 </div>
             </div>

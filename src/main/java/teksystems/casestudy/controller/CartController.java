@@ -31,14 +31,32 @@ public class CartController {
 
     @PostMapping("buyer/addToCart")
     public ModelAndView addtoCart(@RequestParam("productId")Integer[] productIds) throws Exception {
+        User user = authenticatedUserService.getCurrentUser();
+        cartService.AddtoCart(productIds, user);
+        return displayCart();
+    }
+
+    @GetMapping("buyer/shoppingcart")
+    public ModelAndView displayShoppingCart() throws Exception {
+        return displayCart();
+    }
+
+    private ModelAndView displayCart()
+    {
         ModelAndView response = new ModelAndView();
         response.setViewName("buyer/shoppingcart");
         User user = authenticatedUserService.getCurrentUser();
-        cartService.AddtoCart(productIds, user);
         Order order =  orderService.getPendingOrder(user);
-        List<OrderLine> orderLines = order.getOrderlines();
-        response.addObject("order", order);
-        response.addObject("orderLines", orderLines);
+        if (order != null)
+        {
+            List<OrderLine> orderLines = order.getOrderlines();
+            order.setOrderTotal(orderService.getGrandTotal(user));
+            orderService.saveOrder(order);
+            response.addObject("order", order);
+            response.addObject("orderLines", orderLines);
+
+        }
+
         return response;
     }
 

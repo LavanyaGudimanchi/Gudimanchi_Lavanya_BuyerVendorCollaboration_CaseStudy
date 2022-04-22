@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import teksystems.casestudy.Utils.Categories;
 import teksystems.casestudy.database.entity.Product;
 import teksystems.casestudy.database.entity.User;
 import teksystems.casestudy.security.AuthenticatedUserService;
@@ -13,7 +14,10 @@ import teksystems.casestudy.service.ProductService;
 import teksystems.casestudy.service.UserService;
 
 import javax.validation.Valid;
+import java.util.EnumSet;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Controller
 public class ProductController {
@@ -42,8 +46,6 @@ public class ProductController {
     public ModelAndView addProduct(@ModelAttribute("product") Product product) throws Exception {
         ModelAndView response = new ModelAndView();
         response.setViewName("vendor/addProduct");
-        List<String> categories = productService.getAllCategories();
-        response.addObject("categories", categories);
         response.addObject("product", product);
         return response;
     }
@@ -52,8 +54,6 @@ public class ProductController {
     public ModelAndView editProduct(@PathVariable("productId") Integer productId) throws Exception {
         ModelAndView response = new ModelAndView();
         response.setViewName("vendor/addProduct");
-        List<String> categories = productService.getAllCategories();
-        response.addObject("categories", categories);
         response.addObject("product", productService.getProductById(productId));
         return response;
     }
@@ -72,8 +72,6 @@ public class ProductController {
         {
             ModelAndView response = new ModelAndView();
             response.setViewName("vendor/addProduct");
-            List<String> categories = productService.getAllCategories();
-            response.addObject("categories", categories);
             response.addObject("product", productService.getProductById(product.getId()));
             response.addObject("bindingResult", bindingResult);
             return response;

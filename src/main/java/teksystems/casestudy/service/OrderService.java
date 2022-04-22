@@ -9,6 +9,8 @@ import teksystems.casestudy.database.entity.OrderLine;
 import teksystems.casestudy.database.entity.Product;
 import teksystems.casestudy.database.entity.User;
 
+import java.util.List;
+
 @Service
 public class OrderService {
 
@@ -17,7 +19,23 @@ public class OrderService {
 
     public Order getPendingOrder(User user)
     {
-       return orderdao.getOrderByBuyer(user);
+       return orderdao.getOrderByBuyerAndStatus(user,"PENDING");
+    }
+
+    public List<Order> getPlacedOrders(User user)
+    {
+        return orderdao.getPlacedOrders(user.getId(),"PENDING");
+    }
+
+    public void placeOrder(User user) {
+        Order order = getPendingOrder(user);
+        order.setStatus("ORDERED");
+        orderdao.save(order);
+    }
+
+    public Double getGrandTotal(User user)
+    {
+        return orderdao.getGrandTotal(user.getId());
     }
 
     public Order saveOrder(Order order)

@@ -28,9 +28,9 @@ public class CartService {
             order = new Order();
             order.setBuyer(user);
             order.setStatus("PENDING");
-            order = orderService.saveOrder(order);
-        }
 
+        }
+        orderService.saveOrder(order);
         for (Integer productId: productIds)
         {
             Product product = productService.getProductById(productId);
@@ -41,13 +41,14 @@ public class CartService {
                 orderLine.setProduct(product);
                 orderLine.setOrder(order);
                 orderLine.setQuantity(1);
-                orderLineService.save(orderLine);
+
             }
             else
             {
                 orderLine.setQuantity(orderLine.getQuantity()+1);
-                orderLineService.save(orderLine);
+
             }
+            orderLineService.save(orderLine);
         }
 
     }
