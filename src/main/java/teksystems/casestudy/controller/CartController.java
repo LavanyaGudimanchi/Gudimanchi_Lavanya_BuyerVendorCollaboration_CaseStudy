@@ -1,6 +1,7 @@
 package teksystems.casestudy.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -18,6 +19,7 @@ import teksystems.casestudy.service.OrderService;
 
 import java.util.List;
 
+@PreAuthorize("hasAuthority('BUYER')")
 @Controller
 public class CartController {
     @Autowired

@@ -33,6 +33,11 @@ public class OrderService {
         orderdao.save(order);
     }
 
+    public void payOrder(Order order) {
+        order.setStatus("PAID");
+        orderdao.save(order);
+    }
+
     public Double getGrandTotal(User user)
     {
         return orderdao.getGrandTotal(user.getId());
@@ -41,6 +46,11 @@ public class OrderService {
     public Order saveOrder(Order order)
     {
        return orderdao.save(order);
+    }
+
+    public Order getOrderById(Integer oderId)
+    {
+        return orderdao.getById(oderId);
     }
 
     public OrderLine getOrderLine(Order order, Product product)
