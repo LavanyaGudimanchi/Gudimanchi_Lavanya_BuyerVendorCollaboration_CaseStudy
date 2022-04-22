@@ -5,6 +5,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Repository;
 import teksystems.casestudy.database.entity.User;
 
+import java.util.List;
+
 @Repository
 public interface UserDAO extends JpaRepository<User, Integer> {
 

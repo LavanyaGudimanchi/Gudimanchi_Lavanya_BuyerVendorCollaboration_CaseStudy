@@ -1,8 +1,10 @@
 <jsp:include page="../include/header.jsp"/>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<h2>Products List</h2>
-<form class="form-inline my-2 my-lg-0" action="/buyer/addToCart" method="POST">
+<div class="container" >
+    <h2 >My Products</h2>
+<form action="/buyer/addToCart" method="POST">
+
 <table>
     <tr>
 <sec:authorize access="hasAuthority('BUYER')">
@@ -31,7 +33,7 @@
             <td >${product.isAvailable}</td>
             <sec:authorize access="hasAuthority('VENDOR')">
                 <td>
-                    <a href="/vendor/addProduct/${product.id}" value="${product.id}">Eidt/Delete</a>
+                    <a href="/vendor/addProduct/${product.id}" value="${product.id}">Edit/Delete</a>
                 </td>
             </sec:authorize>
         </tr>
@@ -40,16 +42,17 @@
 
 <!-- Add to cart button -->
 <sec:authorize access="hasAuthority('BUYER')">
-    <button type="submit" class="btn btn-primary btn-block mb-4">Add to Cart</button>
+    <button type="submit" class="btn btn-primary btn-block mb-4" id="mybutton">Add to Cart</button>
 </sec:authorize>
 </form>
-<form class="form-inline my-2 my-lg-0" action="/vendor/addProduct" method="GET">
+<form style="margin: auto; width: 400px; margin-top: 3rem;" action="/vendor/addProduct" method="GET" >
 <!-- Submit button -->
 <sec:authorize access="hasAuthority('VENDOR')">
 
-        <button type="submit" class="btn btn-primary btn-block mb-4">Add new Product</button>
+        <button type="submit" class="btn btn-primary btn-block mb-4" id="mybutton">Add new Product</button>
 
 </sec:authorize>
 <h3></h3>
 </form>
+</div>
 <jsp:include page="../include/footer.jsp"/>

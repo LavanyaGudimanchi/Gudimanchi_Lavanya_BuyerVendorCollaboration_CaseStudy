@@ -1,26 +1,35 @@
 package teksystems.casestudy.formbean;
 
-
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.validator.constraints.Length;
+import teksystems.casestudy.database.entity.Order;
+import teksystems.casestudy.database.entity.Product;
 import teksystems.casestudy.validation.EmailUnique;
 
-import javax.persistence.Column;
-import javax.validation.constraints.AssertTrue;
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
-
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import java.util.ArrayList;
+import java.util.List;
 
 @ToString
-
 @Getter@Setter
-public class registerformbean {
+public class RegisterFormBean {
+
+    private Long  phoneNumber;
+
+    private String companyName;
+
+    private Integer id;
+
+    @NotBlank(message = "First name is required")
+    private String firstName;
+
+    @NotBlank(message = "Last name is required")
+    private String lastName;
 
     @EmailUnique(message = "Email already exists in database")
     @NotBlank(message = "Email is required")
@@ -28,13 +37,7 @@ public class registerformbean {
     @Pattern(regexp = "[a-z0-9]+@[a-z]+\\.[a-z]{2,3}", message = "Email format invalid in regex check")
     private String email;
 
-
-
-    @NotBlank(message = "First name is required")
-    private String firstName;
-
-    @NotBlank(message = "Last name is required")
-    private String lastName;
+    private String loginId;
 
     @Length(min = 3, max = 15, message="Password must be between 3 and 15 characters")
     @NotBlank(message = "Password is required")
@@ -43,11 +46,14 @@ public class registerformbean {
     @NotBlank(message = "Confirm Password is required")
     private String confirmPassword;
 
+    private String addressLine1;
 
-    @NotBlank(message = "PhoneNumber can not be empty")
-    private String  phoneNumber;
+    private String addressLine2;
 
-    @NotBlank(message= "Company Name can not be empty ")
-    private String companyName;
+    private String city;
+
+    private String state;
+
+    private Integer zipcode;
 
 }

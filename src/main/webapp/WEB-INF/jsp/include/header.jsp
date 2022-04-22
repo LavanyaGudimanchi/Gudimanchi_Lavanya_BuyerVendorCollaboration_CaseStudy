@@ -6,6 +6,29 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Buyer and Vendor Collaboration</title>
+
+    <style>
+        table{
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th,td{
+            text-align: left;
+            padding: 8px;
+        }
+        tr:nth-child(even){
+            background-color: #CD5C5C;
+            color: white;
+        }
+        tr:nth-child(odd){
+            background-color: antiquewhite;
+            color: black;
+        }
+
+
+
+    </style>
     <!-- Bootstrap and fontawesome CSS -->
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
@@ -18,20 +41,22 @@
     <link rel="stylesheet" href="../../../pub/css/productlink.css">
 
 
+
+
 </head>
 
 <body>
-<header id="header">
-        <div class="navbar navbar-dark navbar-expand-lg" style="background-color: maroon">
-                <a  href="">
+<header id="topHeader">
+        <div class="navbar navbar-dark navbar-expand-lg ">
+                <a  href="/">
                     <img src="../../../pub/images/logoheader.png"  alt="">
                 </a>
                 <button data-toggle="collapse" data-target="#navbarToggler" type="button" class="navbar-toggler"><span
                         class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarToggler">
+                <div class="collapse navbar-collapse" >
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Home</a>
+                            <a class="nav-link" href="/">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">About Us</a>
@@ -52,20 +77,25 @@
                                 </div>
                             </li>
                         </sec:authorize>
-                       <sec:authorize access="isAuthenticated()">
-                            <li class="nav-item">
-                                <a  style="background-color: #bc987e; font-style: italic; border: none; border-radius: 25px; color: #333; /* Dark grey */ padding: 5px 22px" href="/login/logout">Logout</a>
-                                &nbsp; | &nbsp;<a style="color: white"> <sec:authentication property="principal.username"  /> </a>
-                            </li>
+                        <sec:authorize access="hasAuthority('VENDOR')">
+                            <a class="nav-link" href="/products/products">My Products</a>
                         </sec:authorize>
-
+                    </ul>
+                    <ul class="navbar-nav">
+                        <sec:authorize access="isAuthenticated()">
+                            <form class="form-inline my-2 my-lg-0">
+                                <input class="form-control mr-sm-50" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                            </form>
+                        </sec:authorize>
                     </ul>
                 </div>
             <sec:authorize access="isAuthenticated()">
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-50" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
+               <li class="nav-item" ><a class="nav-link" style="color: #CD5C5C" > Welcome: <sec:authentication property="principal.username"  /> </a></li>
+                <li class="nav-item">
+                    <a class="nav-link" background-color="yellow" href="/login/logout">Logout</a>
+                </li>
             </sec:authorize>
+
             </div>
 </header>

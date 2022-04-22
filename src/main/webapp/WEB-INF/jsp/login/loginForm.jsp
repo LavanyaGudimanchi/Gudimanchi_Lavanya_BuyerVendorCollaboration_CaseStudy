@@ -1,6 +1,12 @@
 <jsp:include page="../include/header.jsp" />
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <form style="margin: auto; width: 400px; margin-top: 5rem;" action="/login/loginSubmit" method="POST">
 <h2 align="center">Login</h2>
+    <c:if test="${param.error != null}">
+        <div style="color:red;">
+            Invalid username and password.
+        </div>
+    </c:if>
     <!-- Email input -->
       <div class="form-outline mb-4">
       <input type="username" id="form2Example1" class="form-control" name="username" value="${username}"/>
@@ -30,7 +36,7 @@
     </div>
 
     <!-- Submit button -->
-    <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+    <button type="submit" class="btn btn-primary btn-block mb-4" id="mybutton">Sign in</button>
 
 
   </form>

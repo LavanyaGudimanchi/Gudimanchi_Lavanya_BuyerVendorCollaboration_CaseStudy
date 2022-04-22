@@ -1,9 +1,15 @@
 package teksystems.casestudy.database.entity;
 
 import lombok.*;
+import org.hibernate.validator.constraints.Length;
+import teksystems.casestudy.validation.EmailUnique;
 
 import javax.persistence.*;
 import javax.transaction.Transactional;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,7 +70,5 @@ public class User {
 
     @Column(name ="isBuyer")
     private boolean isBuyer;
-
-    private String confirmPassword;
 
 }

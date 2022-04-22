@@ -1,7 +1,7 @@
 <jsp:include page="../include/header.jsp" />
 <!-- image product links starts here -->
 
-<div id="mainContent">
+<div  id="mainContent">
     <div id="row">
         <div id="column">
             <h3 >Ikat</h3>
@@ -14,6 +14,10 @@
         <div id="column">
             <h3>Crepe</h3>
             <a href=""><img src="../../../pub/images/crepe.png" alt="" style="width:200px" height="200px"></a>
+        </div>
+        <div id="column">
+            <h3>Cotton</h3>
+            <a href=""> <img src="../../../pub/images/cotton.png" alt="" style="width:200px" height="200px"></a>
         </div>
         <div id="column">
             <h3>Cotton</h3>
@@ -37,20 +41,11 @@
             <h3>Lenin</h3>
             <a href=""> <img src="../../../pub/images/lenin.jpg" alt="" style="width:200px" height="200px"></a>
         </div>
+        <div id="column">
+            <h3>Cotton</h3>
+            <a href=""> <img src="../../../pub/images/cotton.png" alt="" style="width:200px" height="200px"></a>
+        </div>
     </div>
 </div>
-
-<table>
-    <tr>
-        <th>Category Name</th>
-
-    </tr>
-    <c:forEach items="${categories}" var="category" varStatus="tagStatus">
-        <tr>
-            <td>${category}</td>
-
-        </tr>
-    </c:forEach>
-</table>
 
 <jsp:include page="../include/footer.jsp" />

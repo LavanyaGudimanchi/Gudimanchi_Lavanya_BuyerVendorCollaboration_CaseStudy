@@ -3,6 +3,7 @@ package teksystems.casestudy.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import teksystems.casestudy.database.entity.Product;
@@ -11,6 +12,7 @@ import teksystems.casestudy.security.AuthenticatedUserService;
 import teksystems.casestudy.service.ProductService;
 import teksystems.casestudy.service.UserService;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -64,7 +66,19 @@ public class ProductController {
     }
 
     @RequestMapping(value = "vendor/saveProduct", method=RequestMethod.POST, params = "delete")
-    public ModelAndView deleteProduct(@ModelAttribute("product") Product product) throws Exception {
+    public ModelAndView deleteProduct(@Valid @ModelAttribute("product") Product product, BindingResult bindingResult) throws Exception {
+
+        if (bindingResult.hasErrors())
+        {
+            ModelAndView response = new ModelAndView();
+            response.setViewName("vendor/addProduct");
+            List<String> categories = productService.getAllCategories();
+            response.addObject("categories", categories);
+            response.addObject("product", productService.getProductById(product.getId()));
+            response.addObject("bindingResult", bindingResult);
+            return response;
+
+        }
         productService.delete(product);
         return returnProductsByUser();
     }

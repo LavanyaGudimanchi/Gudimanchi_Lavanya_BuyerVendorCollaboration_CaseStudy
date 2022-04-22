@@ -1,5 +1,6 @@
 body{
     height: 100%;
+
 }
 
 .myrows{
@@ -12,17 +13,38 @@ body{
 .mycontainer{
     background-color: aqua;
 }
+
+/* These are my CSS styles - confirmed */
+
 #topHeader{
-    background-color: black;
-    border-bottom: 1px solid  silver;
-    padding: 5px;
+background-image: url('../../pub/images/header.jpg');
 }
-#topHeader a{
-    color: rgb(219, 202, 202);
-    font-weight: 300;
-    font-size: 1rem;
+
+#mainContent{
+    margin-top: 1rem;
+   background-color: #E5DEE0;
+    border-radius: 10px;
 
 }
+/* Rounded border */
+hr.rounded {
+    border-top: 4px solid #bbb;
+    border-radius: 5px;
+}
+
+table a{
+    font-weight: bolder;
+    color: darkgreen;
+}
+
+#mybutton
+{
+    background-color: darkgreen;
+}
+
+
+/* These are my CSS styles - confirmed */
+
 .container-fluid{
     padding-left: 0;
     padding-right: 0;
@@ -35,7 +57,7 @@ nav ul li a{
 /*start of footer */
 
 .full-footer{
-    background-image: linear-gradient( maroon, black);
+    background-image: linear-gradient(#CD5C5C, black);
 
 
 }
@@ -58,3 +80,7 @@ nav ul li a{
     width: 100%;
     padding-top: 10px;
 }
+
+
+
+

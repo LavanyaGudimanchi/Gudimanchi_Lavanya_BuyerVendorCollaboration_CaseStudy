@@ -13,7 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import teksystems.casestudy.database.dao.UserDAO;
 import teksystems.casestudy.database.entity.User;
 
-    public class EmailUniqueImpl implements ConstraintValidator<EmailUnique, String> {
+    import java.util.List;
+
+public class EmailUniqueImpl implements ConstraintValidator<EmailUnique, String> {
 
         public static final Logger LOG = LoggerFactory.getLogger(EmailUniqueImpl.class);
 

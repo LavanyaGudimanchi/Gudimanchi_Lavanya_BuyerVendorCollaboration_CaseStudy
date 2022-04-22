@@ -1,6 +1,7 @@
 package teksystems.casestudy.database.entity;
 
 import lombok.*;
+import teksystems.casestudy.validation.HasOrders;
 
 import javax.persistence.*;
 
@@ -12,6 +13,7 @@ import javax.persistence.*;
 @Table(name ="products")
 public class Product{
 
+    @HasOrders
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")

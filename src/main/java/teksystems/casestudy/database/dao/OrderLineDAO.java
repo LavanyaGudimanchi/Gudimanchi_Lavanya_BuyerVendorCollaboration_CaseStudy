@@ -6,4 +6,6 @@ import teksystems.casestudy.database.entity.OrderLine;
 
 @Repository
 public interface OrderLineDAO  extends JpaRepository<OrderLine, Integer> {
+
+    public OrderLine findByProductId(Integer id);
 }
