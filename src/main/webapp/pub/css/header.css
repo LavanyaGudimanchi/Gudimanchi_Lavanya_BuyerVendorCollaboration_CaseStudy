@@ -17,7 +17,7 @@ body{
 /* These are my CSS styles - confirmed */
 
 #topHeader{
-background-image: url('../../pub/images/header.jpg');
+    background-image: url('../../pub/images/header.jpg');
 }
 
 #mainContent{
