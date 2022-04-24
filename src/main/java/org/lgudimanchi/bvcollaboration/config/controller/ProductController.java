@@ -1,7 +1,9 @@
-package org.lgudimanchi.bvcollaboration.controller;
+package org.lgudimanchi.bvcollaboration.config.controller;
 
 import org.lgudimanchi.bvcollaboration.database.entity.Product;
+import org.lgudimanchi.bvcollaboration.database.entity.User;
 import org.lgudimanchi.bvcollaboration.security.AuthenticatedUserService;
+import org.lgudimanchi.bvcollaboration.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -18,6 +20,9 @@ public class ProductController {
     private ProductService productService;
 
     @Autowired
+    private UserService userService;
+
+    @Autowired
     private AuthenticatedUserService authenticatedUserService;
 
     @GetMapping("products/products/{category}")
@@ -32,7 +37,14 @@ public class ProductController {
     @GetMapping("products/products")
     public ModelAndView productslistbyUser()  throws Exception {
 
-        return returnProductsByUser();
+        return returnProductsByUser(authenticatedUserService.getCurrentUser());
+    }
+
+    @GetMapping("products/search")
+    public ModelAndView productslistbyVendor(@RequestParam(value = "firstName", required = false) String firstName)   throws Exception {
+
+        User vendor = userService.findByFirstName(firstName);
+        return returnProductsByUser(vendor);
     }
 
     @GetMapping("vendor/addProduct")
@@ -55,7 +67,7 @@ public class ProductController {
     public ModelAndView saveProduct(@ModelAttribute("product") Product product) throws Exception {
         product.setVendor(authenticatedUserService.getCurrentUser());
         productService.save(product);
-        return returnProductsByUser();
+        return returnProductsByUser(authenticatedUserService.getCurrentUser());
     }
 
     @RequestMapping(value = "vendor/saveProduct", method=RequestMethod.POST, params = "delete")
@@ -71,19 +83,16 @@ public class ProductController {
 
         }
         productService.delete(product);
-        return returnProductsByUser();
+        return returnProductsByUser(authenticatedUserService.getCurrentUser());
     }
 
-    private ModelAndView returnProductsByUser()
+    private ModelAndView returnProductsByUser(User user)
     {
         ModelAndView response = new ModelAndView();
         response.setViewName("products/products");
-        List<Product> products = productService.getProductsByUser(authenticatedUserService.getCurrentUser());
+        List<Product> products = productService.getProductsByUser(user);
         response.addObject("products", products);
         return response;
     }
-
-
-
 
 }

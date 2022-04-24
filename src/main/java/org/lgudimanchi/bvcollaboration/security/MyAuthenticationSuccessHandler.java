@@ -34,7 +34,8 @@ public class MyAuthenticationSuccessHandler implements AuthenticationSuccessHand
         authenticatedUserService.setCategories();
 
     }
-
+    // This function will determine the target url. if Buyer then it will show the buyer/categories page. If User then it will show the
+    //product/products url.
     protected String determineTargetUrl(final Authentication authentication) {
 
         Map<String, String> roleTargetUrlMap = new HashMap<>();

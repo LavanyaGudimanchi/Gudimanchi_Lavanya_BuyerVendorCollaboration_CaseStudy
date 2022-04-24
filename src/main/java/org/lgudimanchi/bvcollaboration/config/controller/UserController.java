@@ -1,4 +1,4 @@
-package org.lgudimanchi.bvcollaboration.controller;
+package org.lgudimanchi.bvcollaboration.config.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.lgudimanchi.bvcollaboration.database.entity.User;
@@ -25,6 +25,7 @@ public class UserController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
+    //I am sending the formbean as a user object using model attribute approach
     @GetMapping("login/registerUser")
     public ModelAndView registerUser(@ModelAttribute("user") RegisterFormBean registerFormBean) throws Exception {
         ModelAndView response = new ModelAndView();

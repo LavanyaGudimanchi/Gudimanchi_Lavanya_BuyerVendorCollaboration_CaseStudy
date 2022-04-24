@@ -5,6 +5,12 @@
     <h2 >Products</h2>
 <form action="/buyer/addToCart" method="POST">
 
+
+    <c:if test="${not empty category}">
+        <h5 style="color: mediumvioletred">Search Results Found ${products.size()}</h5>
+        <br>
+    </c:if>
+
 <table>
     <tr>
 <sec:authorize access="hasAuthority('BUYER')">
@@ -15,6 +21,9 @@
         <th>Category</th>
         <th>Price</th>
         <th>Availability</th>
+<sec:authorize access="hasAuthority('BUYER')">
+        <th>Vendor</th>
+</sec:authorize>
 <sec:authorize access="hasAuthority('VENDOR')">
     <th>Update</th>
 </sec:authorize>
@@ -31,6 +40,9 @@
             <td>${product.category}</td>
             <td>${product.price}</td>
             <td >${product.isAvailable}</td>
+            <sec:authorize access="hasAuthority('BUYER')">
+            <td >${product.vendor.firstName}</td>
+            </sec:authorize>
             <sec:authorize access="hasAuthority('VENDOR')">
                 <td>
                     <a href="/vendor/addProduct/${product.id}" value="${product.id}">Edit/Delete</a>

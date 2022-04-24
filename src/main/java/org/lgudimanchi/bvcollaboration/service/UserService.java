@@ -13,10 +13,15 @@ public class UserService {
 
     public User validateUser(String loginID, String password) {
 
-        return userdao.findFirstByLoginIdAndPassword(loginID,password);
+        return userdao.findFirstByLoginIdAndPassword(loginID, password);
 
-        }
+    }
 
+    public User findByFirstName(String firstname) {
+
+        return userdao.findByFirstName(firstname);
+
+    }
     public User saveUser(User user)
     {
         return userdao.save(user);

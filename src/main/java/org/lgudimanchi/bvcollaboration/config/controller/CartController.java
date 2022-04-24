@@ -1,4 +1,4 @@
-package org.lgudimanchi.bvcollaboration.controller;
+package org.lgudimanchi.bvcollaboration.config.controller;
 
 import org.lgudimanchi.bvcollaboration.database.entity.Order;
 import org.lgudimanchi.bvcollaboration.database.entity.OrderLine;
