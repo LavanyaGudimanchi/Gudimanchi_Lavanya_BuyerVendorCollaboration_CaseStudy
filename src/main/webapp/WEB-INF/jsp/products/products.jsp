@@ -31,15 +31,27 @@
     <c:forEach items="${products}" var="product" varStatus="tagStatus">
         <tr>
             <sec:authorize access="hasAuthority('BUYER')">
-            <td>
-                <input type="checkbox" name="productId" value="${product.id}">
-            </td>
+                <c:if test="${product.isAvailable == 'Y'.charAt(0)}">
+                    <td>
+                        <input type="checkbox" name="productId" value="${product.id}" >
+                    </td>
+                </c:if>
+                <c:if test="${product.isAvailable == 'N'.charAt(0)}">
+                    <td>
+                        <input type="checkbox" name="productId" value="${product.id}" disabled="true" >
+                    </td>
+                </c:if>
             </sec:authorize>
             <td>${product.productName}</td>
             <td>${product.productDescription}</td>
             <td>${product.category}</td>
             <td>${product.price}</td>
-            <td >${product.isAvailable}</td>
+            <c:if test="${product.isAvailable == 'Y'.charAt(0)}">
+                <td >Available</td>
+            </c:if>
+            <c:if test="${product.isAvailable == 'N'.charAt(0)}">
+                <td >Out of Stock</td>
+            </c:if>
             <sec:authorize access="hasAuthority('BUYER')">
             <td >${product.vendor.firstName}</td>
             </sec:authorize>
@@ -54,7 +66,7 @@
 
 <!-- Add to cart button -->
 <sec:authorize access="hasAuthority('BUYER')">
-    <button type="submit" class="btn btn-primary btn-block mb-4" id="mybutton">Add to Cart</button>
+    <button type="submit" class="btn btn-primary btn-block mb-4" id="mybutton" >Add to Cart</button>
 </sec:authorize>
 </form>
 <form style="margin: auto; width: 400px; margin-top: 3rem;" action="/vendor/addProduct" method="GET" >
