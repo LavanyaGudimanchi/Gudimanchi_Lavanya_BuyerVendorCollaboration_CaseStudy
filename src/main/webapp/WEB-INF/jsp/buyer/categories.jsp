@@ -8,7 +8,7 @@
             <a href="/products/products/Ikat"> <img src="../../../pub/images/Ikat.png" alt="" style="width:200px" height="200px"></a>
         </div>
         <div class="col justify-content-center">
-            <h3 >Kalamakari</h3>
+            <h3 >Kalamkari</h3>
             <a href="/products/products/Kalamakari"><img src="../../../pub/images/Kalamakari.png" alt="" style="width:200px" height="200px"></a>
         </div>
         <div class="col justify-content-center">
@@ -35,7 +35,7 @@
         </div>
         <div class="col justify-content-center">
             <h3>Lenin</h3>
-            <a href="/products/products/Lenin"> <img src="../../../pub/images/lenin.jpg" alt="" style="width:200px" height="200px"></a>
+            <a href="/products/products/Lenin"> <img src="../../../pub/images/lenin.jpg" alt="" style="width:200px" height="200px" ></a>
         </div>
     </div>
 </div>

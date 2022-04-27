@@ -36,7 +36,7 @@ public class AuthenticatedUserService {
             return null;
         }
     }
-
+//This method gets called from jsp
     public boolean isUserInRole(String role) {
         SecurityContext context = SecurityContextHolder.getContext();
         if (context != null && context.getAuthentication() != null) {
@@ -80,7 +80,7 @@ public class AuthenticatedUserService {
         session.setAttribute("categories", categories);
 
     }
-
+//This method gets called from jsp.
     public boolean isAuthenticated() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication instanceof AnonymousAuthenticationToken) {

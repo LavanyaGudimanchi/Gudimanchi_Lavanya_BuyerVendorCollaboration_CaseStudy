@@ -22,6 +22,7 @@ public class UserService {
         return userdao.findByFirstName(firstname);
 
     }
+    //Since it is basic CRUD operation we don't need to create save method in userDAO.
     public User saveUser(User user)
     {
         return userdao.save(user);

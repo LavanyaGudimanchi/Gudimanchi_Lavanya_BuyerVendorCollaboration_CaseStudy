@@ -1,4 +1,4 @@
-package org.lgudimanchi.bvcollaboration.config.controller;
+package org.lgudimanchi.bvcollaboration.controller;
 
 import org.lgudimanchi.bvcollaboration.database.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;

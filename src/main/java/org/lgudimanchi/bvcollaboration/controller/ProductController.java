@@ -1,4 +1,4 @@
-package org.lgudimanchi.bvcollaboration.config.controller;
+package org.lgudimanchi.bvcollaboration.controller;
 
 import org.lgudimanchi.bvcollaboration.database.entity.Product;
 import org.lgudimanchi.bvcollaboration.database.entity.User;
@@ -35,18 +35,19 @@ public class ProductController {
     }
 
     @GetMapping("products/products")
-    public ModelAndView productslistbyUser()  throws Exception {
+    public ModelAndView productslistbyUser() throws Exception {
 
         return returnProductsByUser(authenticatedUserService.getCurrentUser());
     }
 
     @GetMapping("products/search")
-    public ModelAndView productslistbyVendor(@RequestParam(value = "firstName", required = false) String firstName)   throws Exception {
+    public ModelAndView productslistbyVendor(@RequestParam(value = "firstName", required = false) String firstName) throws Exception {
 
         User vendor = userService.findByFirstName(firstName);
         return returnProductsByUser(vendor);
     }
 
+    //Add product
     @GetMapping("vendor/addProduct")
     public ModelAndView addProduct(@ModelAttribute("product") Product product) throws Exception {
         ModelAndView response = new ModelAndView();
@@ -55,6 +56,7 @@ public class ProductController {
         return response;
     }
 
+    //Editing the product
     @GetMapping("vendor/addProduct/{productId}")
     public ModelAndView editProduct(@PathVariable("productId") Integer productId) throws Exception {
         ModelAndView response = new ModelAndView();
@@ -63,18 +65,17 @@ public class ProductController {
         return response;
     }
 
-    @RequestMapping(value = "vendor/saveProduct", method=RequestMethod.POST, params = "save")
+    @RequestMapping(value = "vendor/saveProduct", method = RequestMethod.POST, params = "save")
     public ModelAndView saveProduct(@ModelAttribute("product") Product product) throws Exception {
         product.setVendor(authenticatedUserService.getCurrentUser());
         productService.save(product);
         return returnProductsByUser(authenticatedUserService.getCurrentUser());
     }
 
-    @RequestMapping(value = "vendor/saveProduct", method=RequestMethod.POST, params = "delete")
+    @RequestMapping(value = "vendor/saveProduct", method = RequestMethod.POST, params = "delete")
     public ModelAndView deleteProduct(@Valid @ModelAttribute("product") Product product, BindingResult bindingResult) throws Exception {
 
-        if (bindingResult.hasErrors())
-        {
+        if (bindingResult.hasErrors()) {
             ModelAndView response = new ModelAndView();
             response.setViewName("vendor/addProduct");
             response.addObject("product", productService.getProductById(product.getId()));
@@ -86,8 +87,7 @@ public class ProductController {
         return returnProductsByUser(authenticatedUserService.getCurrentUser());
     }
 
-    private ModelAndView returnProductsByUser(User user)
-    {
+    private ModelAndView returnProductsByUser(User user) {
         ModelAndView response = new ModelAndView();
         response.setViewName("products/products");
         List<Product> products = productService.getProductsByUser(user);

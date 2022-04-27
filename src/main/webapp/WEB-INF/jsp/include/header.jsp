@@ -12,6 +12,7 @@
         table {
             border-collapse: collapse;
             width: 100%;
+            border: 1px solid black;
         }
 
         th, td {
@@ -20,13 +21,15 @@
         }
 
         tr:nth-child(even) {
-            background-color: #E0D7FF;
+            background-color:#fff8e7;
             color: black;
+
         }
 
         tr:nth-child(odd) {
-            background-color: #FAFFC7;
+            background-color: #ff9999;
             color: black;
+
         }
 
 

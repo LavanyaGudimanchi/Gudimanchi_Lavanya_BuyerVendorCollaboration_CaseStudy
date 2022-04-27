@@ -1,4 +1,4 @@
-package org.lgudimanchi.bvcollaboration.config.controller;
+package org.lgudimanchi.bvcollaboration.controller;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +13,9 @@ public class IndexController {
     public static final Logger LOG = LoggerFactory.getLogger(IndexController.class);
 
 
+    //redirecting to indexpage
+    //onlt seeting view
+    //there is not model
     @GetMapping(value = "/")
     public ModelAndView main() throws Exception {
         ModelAndView response = new ModelAndView();

@@ -1,4 +1,4 @@
-package org.lgudimanchi.bvcollaboration.config.controller;
+package org.lgudimanchi.bvcollaboration.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;

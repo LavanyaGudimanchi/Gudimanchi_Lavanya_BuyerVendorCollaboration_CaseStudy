@@ -18,7 +18,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Autowired
     private UserDAO userDao;
 
-
+    //This method will let the spring security know where to get the user details from to authenticate. It also sets role of the user.
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userDao.findByLoginId(username);
@@ -42,9 +42,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         if (user.isBuyer()) {
             authority = new SimpleGrantedAuthority("BUYER");
             springRoles.add(authority);
-        }
-        else
-        {
+        } else {
             authority = new SimpleGrantedAuthority("VENDOR");
             springRoles.add(authority);
         }

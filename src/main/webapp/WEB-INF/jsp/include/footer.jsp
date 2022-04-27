@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-md-3">
                 <img class="img-fluid" src="../../../pub/images/logofooter.png" alt="">
-                <p>Srila is a buyer vendor collbration where all vendors can signup and add thier products...
+                <p>Srila is a buyer vendor collaboration where all vendors can sign up and add their products....
                     <a href="">Read more</a>
                 </p>
                 <a style="color:silver;" class="p-1" href="#" class="social-icon">

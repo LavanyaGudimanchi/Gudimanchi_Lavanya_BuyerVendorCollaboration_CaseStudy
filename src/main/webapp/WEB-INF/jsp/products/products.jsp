@@ -38,7 +38,7 @@
                 </c:if>
                 <c:if test="${product.isAvailable == 'N'.charAt(0)}">
                     <td>
-                        <input type="checkbox" name="productId" value="${product.id}" disabled="true" >
+                        <input type="checkbox"  name="productId" value="${product.id}" disabled="true" >
                     </td>
                 </c:if>
             </sec:authorize>
@@ -47,10 +47,10 @@
             <td>${product.category}</td>
             <td>${product.price}</td>
             <c:if test="${product.isAvailable == 'Y'.charAt(0)}">
-                <td >Available</td>
+                <td style="color: #008000"><b>Available</b></td>
             </c:if>
             <c:if test="${product.isAvailable == 'N'.charAt(0)}">
-                <td >Out of Stock</td>
+                <td style="color: red" ><b>Out of Stock</b></td>
             </c:if>
             <sec:authorize access="hasAuthority('BUYER')">
             <td >${product.vendor.firstName}</td>
